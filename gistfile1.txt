@@ -1,0 +1,30 @@
+# Install linux update, followed by GCC and Make
+sudo yum -y update
+sudo yum install -y gcc make
+
+# Install Nginx and PHP-FPM
+sudo yum install -y nginx php-fpm
+
+# Install PHP extensions
+sudo yum install -y php-devel php-mysql php-pdo \
+      php-pear php-mbstring php-cli php-odbc \
+      php-imap php-gd php-xml php-soap
+
+# Install PHP-APC
+sudo yum install -y php-pecl-apc
+sudo yum install -y pcre-devel
+
+# Install MySQL
+sudo yum -y install mysql-server mysql
+
+# Nginx Configuration
+sudo nano /etc/nginx/conf.d/default.conf
+
+# PHP-FPM Configuration
+sudo nano /etc/php-fpm.d/www.conf
+
+
+# Autostart Nginx, PHP-FPM and MySQL
+sudo chkconfig nginx on
+sudo chkconfig mysqld on
+sudo chkconfig php-fpm on
